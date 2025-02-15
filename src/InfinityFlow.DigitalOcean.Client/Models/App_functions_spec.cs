@@ -22,6 +22,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #else
         public List<global::InfinityFlow.DigitalOcean.Client.Models.App_alert_spec> Alerts { get; set; }
 #endif
+        /// <summary>The bitbucket property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec? Bitbucket { get; set; }
+#nullable restore
+#else
+        public global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec Bitbucket { get; set; }
+#endif
         /// <summary>The cors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -121,6 +129,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alerts", n => { Alerts = n.GetCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.App_alert_spec>(global::InfinityFlow.DigitalOcean.Client.Models.App_alert_spec.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "bitbucket", n => { Bitbucket = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec>(global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec.CreateFromDiscriminatorValue); } },
                 { "cors", n => { Cors = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_cors_policy>(global::InfinityFlow.DigitalOcean.Client.Models.Apps_cors_policy.CreateFromDiscriminatorValue); } },
                 { "envs", n => { Envs = n.GetCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.App_variable_definition>(global::InfinityFlow.DigitalOcean.Client.Models.App_variable_definition.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "git", n => { Git = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_git_source_spec>(global::InfinityFlow.DigitalOcean.Client.Models.Apps_git_source_spec.CreateFromDiscriminatorValue); } },
@@ -140,6 +149,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.App_alert_spec>("alerts", Alerts);
+            writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec>("bitbucket", Bitbucket);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_cors_policy>("cors", Cors);
             writer.WriteCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.App_variable_definition>("envs", Envs);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_git_source_spec>("git", Git);

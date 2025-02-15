@@ -16,6 +16,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>A boolean value indicating whether the cluster will be automatically upgraded to new patch releases during its maintenance window.</summary>
         public bool? AutoUpgrade { get; set; }
+        /// <summary>An object specifying custom cluster autoscaler configuration.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::InfinityFlow.DigitalOcean.Client.Models.Cluster_autoscaler_configuration? ClusterAutoscalerConfiguration { get; set; }
+#nullable restore
+#else
+        public global::InfinityFlow.DigitalOcean.Client.Models.Cluster_autoscaler_configuration ClusterAutoscalerConfiguration { get; set; }
+#endif
         /// <summary>The range of IP addresses for the overlay network of the Kubernetes cluster in CIDR notation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -152,6 +160,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "auto_upgrade", n => { AutoUpgrade = n.GetBoolValue(); } },
+                { "cluster_autoscaler_configuration", n => { ClusterAutoscalerConfiguration = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Cluster_autoscaler_configuration>(global::InfinityFlow.DigitalOcean.Client.Models.Cluster_autoscaler_configuration.CreateFromDiscriminatorValue); } },
                 { "cluster_subnet", n => { ClusterSubnet = n.GetStringValue(); } },
                 { "control_plane_firewall", n => { ControlPlaneFirewall = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Control_plane_firewall>(global::InfinityFlow.DigitalOcean.Client.Models.Control_plane_firewall.CreateFromDiscriminatorValue); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
@@ -181,6 +190,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("auto_upgrade", AutoUpgrade);
+            writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Cluster_autoscaler_configuration>("cluster_autoscaler_configuration", ClusterAutoscalerConfiguration);
             writer.WriteStringValue("cluster_subnet", ClusterSubnet);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Control_plane_firewall>("control_plane_firewall", ControlPlaneFirewall);
             writer.WriteBoolValue("ha", Ha);

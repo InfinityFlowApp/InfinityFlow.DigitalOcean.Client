@@ -64,9 +64,9 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             AdditionalData = new Dictionary<string, object>();
             CleanupPolicy = global::InfinityFlow.DigitalOcean.Client.Models.Kafka_topic_config_cleanup_policy.Delete;
             CompressionType = global::InfinityFlow.DigitalOcean.Client.Models.Kafka_topic_config_compression_type.Producer;
-            FlushMessages = 9223372;
-            FlushMs = 9223372;
-            MaxCompactionLagMs = 9223372;
+            FlushMessages = 922337203;
+            FlushMs = 922337203;
+            MaxCompactionLagMs = 922337203;
             MessageFormatVersion = global::InfinityFlow.DigitalOcean.Client.Models.Kafka_topic_config_message_format_version.ThreeZeroIV1;
             MessageTimestampType = global::InfinityFlow.DigitalOcean.Client.Models.Kafka_topic_config_message_timestamp_type.Create_time;
         }

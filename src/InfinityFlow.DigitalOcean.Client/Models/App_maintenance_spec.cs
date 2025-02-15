@@ -19,6 +19,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         public bool? Archive { get; set; }
         /// <summary>Indicates whether maintenance mode should be enabled for the app.</summary>
         public bool? Enabled { get; set; }
+        /// <summary>A custom offline page to display when maintenance mode is enabled or the app is archived.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OfflinePageUrl { get; set; }
+#nullable restore
+#else
+        public string OfflinePageUrl { get; set; }
+#endif
         /// <summary>
         /// Instantiates a new <see cref="global::InfinityFlow.DigitalOcean.Client.Models.App_maintenance_spec"/> and sets the default values.
         /// </summary>
@@ -46,6 +54,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             {
                 { "archive", n => { Archive = n.GetBoolValue(); } },
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
+                { "offline_page_url", n => { OfflinePageUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,6 +66,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("archive", Archive);
             writer.WriteBoolValue("enabled", Enabled);
+            writer.WriteStringValue("offline_page_url", OfflinePageUrl);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

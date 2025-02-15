@@ -21,6 +21,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         public DateTimeOffset? CreatedAt { get; private set; }
         /// <summary>A boolean value indicating whether to disable automatic DNS record creation for Let&apos;s Encrypt certificates that are added to the load balancer.</summary>
         public bool? DisableLetsEncryptDnsRecords { get; set; }
+        /// <summary>An array of objects specifying the domain configurations for a Global load balancer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::InfinityFlow.DigitalOcean.Client.Models.Domains>? Domains { get; set; }
+#nullable restore
+#else
+        public List<global::InfinityFlow.DigitalOcean.Client.Models.Domains> Domains { get; set; }
+#endif
         /// <summary>A boolean value indicating whether HTTP keepalive connections are maintained to target Droplets.</summary>
         public bool? EnableBackendKeepalive { get; set; }
         /// <summary>A boolean value indicating whether PROXY Protocol is in use.</summary>
@@ -40,6 +48,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #nullable restore
 #else
         public List<global::InfinityFlow.DigitalOcean.Client.Models.Forwarding_rule> ForwardingRules { get; set; }
+#endif
+        /// <summary>An object specifying forwarding configurations for a Global load balancer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::InfinityFlow.DigitalOcean.Client.Models.Glb_settings? GlbSettings { get; set; }
+#nullable restore
+#else
+        public global::InfinityFlow.DigitalOcean.Client.Models.Glb_settings GlbSettings { get; set; }
 #endif
         /// <summary>An object specifying health check settings for the load balancer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -61,6 +77,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #else
         public string Ip { get; private set; }
 #endif
+        /// <summary>An attribute containing the public-facing IPv6 address of the load balancer. Note that this feature is currently in private preview.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Ipv6 { get; private set; }
+#nullable restore
+#else
+        public string Ipv6 { get; private set; }
+#endif
         /// <summary>A human-readable name for a load balancer instance.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,6 +95,8 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #endif
         /// <summary>A string indicating whether the load balancer should be external or internal. Internal load balancers have no public IPs and are only accessible to resources on the same VPC network. This property cannot be updated after creating the load balancer.</summary>
         public global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network? Network { get; set; }
+        /// <summary>A string indicating whether the load balancer will support IPv4 or both IPv4 and IPv6 networking. This property cannot be updated after creating the load balancer. Note that this feature is in private preview.</summary>
+        public global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network_stack? NetworkStack { get; set; }
         /// <summary>The ID of the project that the load balancer is associated with. If no ID is provided at creation, the load balancer associates with the user&apos;s default project. If an invalid project ID is provided, the load balancer will not be created.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,6 +122,16 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #else
         public global::InfinityFlow.DigitalOcean.Client.Models.Sticky_sessions StickySessions { get; set; }
 #endif
+        /// <summary>An array containing the UUIDs of the Regional load balancers to be used as target backends for a Global load balancer.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? TargetLoadBalancerIds { get; set; }
+#nullable restore
+#else
+        public List<string> TargetLoadBalancerIds { get; set; }
+#endif
+        /// <summary>A string indicating whether the load balancer should be a standard regional HTTP load balancer, a regional network load balancer that routes traffic at the TCP/UDP transport layer, or a global load balancer.</summary>
+        public global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_type? Type { get; set; }
         /// <summary>A string specifying the UUID of the VPC to which the load balancer is assigned.</summary>
         public Guid? VpcUuid { get; set; }
         /// <summary>
@@ -106,7 +142,9 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             AdditionalData = new Dictionary<string, object>();
             Algorithm = global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_algorithm.Round_robin;
             Network = global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network.EXTERNAL;
+            NetworkStack = global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network_stack.IPV4;
             Size = global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_size.LbSmall;
+            Type = global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_type.REGIONAL;
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -129,22 +167,28 @@ namespace InfinityFlow.DigitalOcean.Client.Models
                 { "algorithm", n => { Algorithm = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_algorithm>(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "disable_lets_encrypt_dns_records", n => { DisableLetsEncryptDnsRecords = n.GetBoolValue(); } },
+                { "domains", n => { Domains = n.GetCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.Domains>(global::InfinityFlow.DigitalOcean.Client.Models.Domains.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "enable_backend_keepalive", n => { EnableBackendKeepalive = n.GetBoolValue(); } },
                 { "enable_proxy_protocol", n => { EnableProxyProtocol = n.GetBoolValue(); } },
                 { "firewall", n => { Firewall = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Lb_firewall>(global::InfinityFlow.DigitalOcean.Client.Models.Lb_firewall.CreateFromDiscriminatorValue); } },
                 { "forwarding_rules", n => { ForwardingRules = n.GetCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.Forwarding_rule>(global::InfinityFlow.DigitalOcean.Client.Models.Forwarding_rule.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "glb_settings", n => { GlbSettings = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Glb_settings>(global::InfinityFlow.DigitalOcean.Client.Models.Glb_settings.CreateFromDiscriminatorValue); } },
                 { "health_check", n => { HealthCheck = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Health_check>(global::InfinityFlow.DigitalOcean.Client.Models.Health_check.CreateFromDiscriminatorValue); } },
                 { "http_idle_timeout_seconds", n => { HttpIdleTimeoutSeconds = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetGuidValue(); } },
                 { "ip", n => { Ip = n.GetStringValue(); } },
+                { "ipv6", n => { Ipv6 = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "network", n => { Network = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network>(); } },
+                { "network_stack", n => { NetworkStack = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network_stack>(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "redirect_http_to_https", n => { RedirectHttpToHttps = n.GetBoolValue(); } },
                 { "size", n => { Size = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_size>(); } },
                 { "size_unit", n => { SizeUnit = n.GetIntValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_status>(); } },
                 { "sticky_sessions", n => { StickySessions = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Sticky_sessions>(global::InfinityFlow.DigitalOcean.Client.Models.Sticky_sessions.CreateFromDiscriminatorValue); } },
+                { "target_load_balancer_ids", n => { TargetLoadBalancerIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "type", n => { Type = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_type>(); } },
                 { "vpc_uuid", n => { VpcUuid = n.GetGuidValue(); } },
             };
         }
@@ -157,19 +201,24 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_algorithm>("algorithm", Algorithm);
             writer.WriteBoolValue("disable_lets_encrypt_dns_records", DisableLetsEncryptDnsRecords);
+            writer.WriteCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.Domains>("domains", Domains);
             writer.WriteBoolValue("enable_backend_keepalive", EnableBackendKeepalive);
             writer.WriteBoolValue("enable_proxy_protocol", EnableProxyProtocol);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Lb_firewall>("firewall", Firewall);
             writer.WriteCollectionOfObjectValues<global::InfinityFlow.DigitalOcean.Client.Models.Forwarding_rule>("forwarding_rules", ForwardingRules);
+            writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Glb_settings>("glb_settings", GlbSettings);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Health_check>("health_check", HealthCheck);
             writer.WriteIntValue("http_idle_timeout_seconds", HttpIdleTimeoutSeconds);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network>("network", Network);
+            writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_network_stack>("network_stack", NetworkStack);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteBoolValue("redirect_http_to_https", RedirectHttpToHttps);
             writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_size>("size", Size);
             writer.WriteIntValue("size_unit", SizeUnit);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Sticky_sessions>("sticky_sessions", StickySessions);
+            writer.WriteCollectionOfPrimitiveValues<string>("target_load_balancer_ids", TargetLoadBalancerIds);
+            writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Load_balancer_base_type>("type", Type);
             writer.WriteGuidValue("vpc_uuid", VpcUuid);
             writer.WriteAdditionalData(AdditionalData);
         }
