@@ -1,0 +1,17 @@
+version: "0.2"
+ignorePaths: []
+dictionaryDefinitions: []
+dictionaries: []
+words:
+  - ASPNETCORE
+  - Cooldown
+  - infinityflow
+  - Npgsql
+  - Oakton
+  - OTEL
+  - OTLP
+  - Keycloak
+  - Temporal
+ignoreWords:
+  - openid
+import: []

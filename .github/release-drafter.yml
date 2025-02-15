@@ -1,0 +1,73 @@
+name-template: "InfinityFlow System $RESOLVED_VERSION"
+tag-template: "v$RESOLVED_VERSION"
+change-template: "- $TITLE by @$AUTHOR (#$NUMBER)"
+no-changes-template: "- No changes"
+categories:
+  - title: "📚 Documentation"
+    labels:
+      - "documentation"
+  - title: "🚀 New Features"
+    labels:
+      - "enhancement"
+  - title: "🐛 Bug Fixes"
+    labels:
+      - "bug"
+  - title: "🚢 area-resources"
+    labels:
+      - "area-resources"
+  - title: "🤝 area-shared"
+    labels:
+      - "area-shared"
+  - title: "📽️ area-projects"
+    labels:
+      - "area-projects"
+  - title: "🧰 Maintenance & Dependencies"
+    labels:
+      - "maintenance"
+      - "dependencies"
+  - title: "☸️ Deployment Resources"
+    labels:
+      - "deployment-resources"
+  - title: "🧑🏼‍💻 Development Tooling"
+    labels:
+      - "dev-tooling"
+version-resolver:
+  major:
+    labels:
+      - "major"
+  minor:
+    labels:
+      - "minor"
+  patch:
+    labels:
+      - "patch"
+  default: patch
+template: |
+  $CHANGES
+
+  ## 👨🏼‍💻 Contributors
+
+  $CONTRIBUTORS
+autolabeler:
+  - label: "documentation"
+    files:
+      - "docs/**/*"
+  - label: "dev-tooling"
+    files:
+      - ".devcontainer/**/*"
+      - "eng/**/*"
+  - label: "maintenance"
+    files:
+      - ".github/**/*"
+      - "test/**/*"
+  - label: "area-resources"
+    files:
+      - "src/Domain/InfinityFlow.Domain.Resources/**/*"
+  - label: "area-shared"
+    files:
+      - "src/InfinityFlow.Shared/**/*"
+      - "src/InfinityFlow.Shared.Temporal/**/*"
+  - label: "dependencies"
+    files:
+      - "Directory.Packages.props"
+      - "**NuGet.config"

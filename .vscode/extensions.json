@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "github.copilot",
+        "github.copilot-chat",
+        "github.copilot-labs",
+        "github.vscode-pull-request-github",
+        "eamodio.gitlens",
+        "github.vscode-github-actions",
+        "ms-azuretools.vscode-docker",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        "bierner.markdown-mermaid",
+        "streetsidesoftware.code-spell-checker",
+        "ms-dotnettools.vscode-dotnet-pack",
+        "editorconfig.editorconfig",
+        "ms-dotnettools.vscodeintellicode-csharp",
+        "kie-group.swf-vscode-extension"
+    ]
+}

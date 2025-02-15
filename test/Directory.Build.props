@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
+
+	<PropertyGroup>
+		<IsPackable>false</IsPackable>
+		<IsTestProject>true</IsTestProject>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoFixture" />
+		<PackageReference Include="AutoFixture.AutoFakeItEasy" />
+		<PackageReference Include="AutoFixture.Idioms" />
+		<PackageReference Include="AutoFixture.NUnit3" />
+		<PackageReference Include="AutoFixture.SeedExtensions" />
+		<PackageReference Include="coverlet.collector">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="FakeItEasy" />
+		<PackageReference Include="FakeItEasy.Analyzer.CSharp">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="FluentAssertions" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="MockQueryable.FakeItEasy" />
+		<PackageReference Include="NUnit" />
+		<PackageReference Include="NUnit.Analyzers">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="NUnit3TestAdapter" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="AutoFixture"/>
+		<Using Include="AutoFixture.AutoFakeItEasy"/>
+		<Using Include="AutoFixture.NUnit3"/>
+		<Using Include="FakeItEasy"/>
+		<Using Include="FluentAssertions"/>
+		<Using Include="NUnit.Framework" />
+	</ItemGroup>
+</Project>
