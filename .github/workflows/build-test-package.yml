@@ -46,6 +46,10 @@ jobs:
           retention-days: 7
           path: pack/*.nupkg
       - name: Publish .NET Solution to GitHub Packages
-        continue-on-error: true
+        continue-on-error: false
         run: dotnet nuget push pack/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+        if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
+      - name: Publish .NET Solution to NuGet.org
+        continue-on-error: false
+        run: dotnet nuget push pack/*.nupkg --api-key ${{ secrets.NUGET_ORG_KEY }} --source nuget
         if: ${{ github.event_name == 'release'  && github.ref_type == 'tag' || github.event.release.tag_name }}
