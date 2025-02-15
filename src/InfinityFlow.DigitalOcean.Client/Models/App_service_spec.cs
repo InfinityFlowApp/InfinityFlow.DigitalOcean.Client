@@ -22,6 +22,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #else
         public global::InfinityFlow.DigitalOcean.Client.Models.App_service_spec_autoscaling Autoscaling { get; set; }
 #endif
+        /// <summary>The bitbucket property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec? Bitbucket { get; set; }
+#nullable restore
+#else
+        public global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec Bitbucket { get; set; }
+#endif
         /// <summary>An optional build command to run while building this component from source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -199,6 +207,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "autoscaling", n => { Autoscaling = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.App_service_spec_autoscaling>(global::InfinityFlow.DigitalOcean.Client.Models.App_service_spec_autoscaling.CreateFromDiscriminatorValue); } },
+                { "bitbucket", n => { Bitbucket = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec>(global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec.CreateFromDiscriminatorValue); } },
                 { "build_command", n => { BuildCommand = n.GetStringValue(); } },
                 { "cors", n => { Cors = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_cors_policy>(global::InfinityFlow.DigitalOcean.Client.Models.Apps_cors_policy.CreateFromDiscriminatorValue); } },
                 { "dockerfile_path", n => { DockerfilePath = n.GetStringValue(); } },
@@ -230,6 +239,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.App_service_spec_autoscaling>("autoscaling", Autoscaling);
+            writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec>("bitbucket", Bitbucket);
             writer.WriteStringValue("build_command", BuildCommand);
             writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_cors_policy>("cors", Cors);
             writer.WriteStringValue("dockerfile_path", DockerfilePath);

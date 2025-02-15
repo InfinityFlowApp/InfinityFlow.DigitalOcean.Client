@@ -12,6 +12,7 @@ using InfinityFlow.DigitalOcean.Client.V2.Droplets;
 using InfinityFlow.DigitalOcean.Client.V2.Firewalls;
 using InfinityFlow.DigitalOcean.Client.V2.Floating_ips;
 using InfinityFlow.DigitalOcean.Client.V2.Functions;
+using InfinityFlow.DigitalOcean.Client.V2.GenAi;
 using InfinityFlow.DigitalOcean.Client.V2.Images;
 using InfinityFlow.DigitalOcean.Client.V2.Kubernetes;
 using InfinityFlow.DigitalOcean.Client.V2.Load_balancers;
@@ -102,6 +103,11 @@ namespace InfinityFlow.DigitalOcean.Client.V2
         public global::InfinityFlow.DigitalOcean.Client.V2.Functions.FunctionsRequestBuilder Functions
         {
             get => new global::InfinityFlow.DigitalOcean.Client.V2.Functions.FunctionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The genAi property</summary>
+        public global::InfinityFlow.DigitalOcean.Client.V2.GenAi.GenAiRequestBuilder GenAi
+        {
+            get => new global::InfinityFlow.DigitalOcean.Client.V2.GenAi.GenAiRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The images property</summary>
         public global::InfinityFlow.DigitalOcean.Client.V2.Images.ImagesRequestBuilder Images

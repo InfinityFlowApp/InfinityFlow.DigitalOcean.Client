@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System;
 namespace InfinityFlow.DigitalOcean.Client.Models
 {
-    /// <summary>When persistence is &apos;rdb&apos;, Redis does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is &apos;off&apos;, no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can&apos;t be forked.</summary>
+    /// <summary>Creates an RDB dump of the database every 10 minutes that can be used  to recover data after a node crash. The database does not create the  dump if no keys have changed since the last dump. When set to `off`,  the database cannot fork services, and data can be lost if a service  is restarted or powered off. DigitalOcean Managed Caching databases  do not support the Append Only File (AOF) persistence method.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public enum Redis_advanced_config_redis_persistence
     {

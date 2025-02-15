@@ -120,5 +120,37 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         #pragma warning disable CS1591
         V1DbaasAlertsCpu_alerts,
         #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/current_instances")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsCurrent_instances,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/target_instances")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsTarget_instances,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/current_cpu_utilization")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsCurrent_cpu_utilization,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/target_cpu_utilization")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsTarget_cpu_utilization,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/current_memory_utilization")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsCurrent_memory_utilization,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/target_memory_utilization")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsTarget_memory_utilization,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/scale_up")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsScale_up,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "v1/droplet/autoscale_alerts/scale_down")]
+        #pragma warning disable CS1591
+        V1DropletAutoscale_alertsScale_down,
+        #pragma warning restore CS1591
     }
 }

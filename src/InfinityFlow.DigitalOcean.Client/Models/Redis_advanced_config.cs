@@ -22,8 +22,8 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         public int? RedisLfuDecayTime { get; set; }
         /// <summary>Counter logarithm factor for volatile-lfu and allkeys-lfu maxmemory-policies</summary>
         public int? RedisLfuLogFactor { get; set; }
-        /// <summary>A string specifying the desired eviction policy for the Redis cluster.- `noeviction`: Don&apos;t evict any data, returns error when memory limit is reached.- `allkeys_lru:` Evict any key, least recently used (LRU) first.- `allkeys_random`: Evict keys in a random order.- `volatile_lru`: Evict keys with expiration only, least recently used (LRU) first.- `volatile_random`: Evict keys with expiration only in a random order.- `volatile_ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.</summary>
-        public global::InfinityFlow.DigitalOcean.Client.Models.Eviction_policy_model? RedisMaxmemoryPolicy { get; set; }
+        /// <summary>A string specifying the desired eviction policy for the Redis cluster.- `noeviction`: Don&apos;t evict any data, returns error when memory limit is reached.- `allkeys-lru:` Evict any key, least recently used (LRU) first.- `allkeys-random`: Evict keys in a random order.- `volatile-lru`: Evict keys with expiration only, least recently used (LRU) first.- `volatile-random`: Evict keys with expiration only in a random order.- `volatile-ttl`: Evict keys with expiration only, shortest time-to-live (TTL) first.</summary>
+        public global::InfinityFlow.DigitalOcean.Client.Models.Redis_advanced_config_redis_maxmemory_policy? RedisMaxmemoryPolicy { get; set; }
         /// <summary>Set notify-keyspace-events option. Requires at least `K` or `E` and accepts any combination of the following options. Setting the parameter to `&quot;&quot;` disables notifications.- `K` &amp;mdash; Keyspace events- `E` &amp;mdash; Keyevent events- `g` &amp;mdash; Generic commands (e.g. `DEL`, `EXPIRE`, `RENAME`, ...)- `$` &amp;mdash; String commands- `l` &amp;mdash; List commands- `s` &amp;mdash; Set commands- `h` &amp;mdash; Hash commands- `z` &amp;mdash; Sorted set commands- `t` &amp;mdash; Stream commands- `d` &amp;mdash; Module key type events- `x` &amp;mdash; Expired events- `e` &amp;mdash; Evicted events- `m` &amp;mdash; Key miss events- `n` &amp;mdash; New key events- `A` &amp;mdash; Alias for `&quot;g$lshztxed&quot;`</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -34,7 +34,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
 #endif
         /// <summary>Set number of redis databases. Changing this will cause a restart of redis service.</summary>
         public int? RedisNumberOfDatabases { get; set; }
-        /// <summary>When persistence is &apos;rdb&apos;, Redis does RDB dumps each 10 minutes if any key is changed. Also RDB dumps are done according to backup schedule for backup purposes. When persistence is &apos;off&apos;, no RDB dumps and backups are done, so data can be lost at any moment if service is restarted for any reason, or if service is powered off. Also service can&apos;t be forked.</summary>
+        /// <summary>Creates an RDB dump of the database every 10 minutes that can be used  to recover data after a node crash. The database does not create the  dump if no keys have changed since the last dump. When set to `off`,  the database cannot fork services, and data can be lost if a service  is restarted or powered off. DigitalOcean Managed Caching databases  do not support the Append Only File (AOF) persistence method.</summary>
         public global::InfinityFlow.DigitalOcean.Client.Models.Redis_advanced_config_redis_persistence? RedisPersistence { get; set; }
         /// <summary>Set output buffer limit for pub / sub clients in MB. The value is the hard limit, the soft limit is 1/4 of the hard limit. When setting the limit, be mindful of the available memory in the selected service plan.</summary>
         public int? RedisPubsubClientOutputBufferLimit { get; set; }
@@ -71,7 +71,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
                 { "redis_io_threads", n => { RedisIoThreads = n.GetIntValue(); } },
                 { "redis_lfu_decay_time", n => { RedisLfuDecayTime = n.GetIntValue(); } },
                 { "redis_lfu_log_factor", n => { RedisLfuLogFactor = n.GetIntValue(); } },
-                { "redis_maxmemory_policy", n => { RedisMaxmemoryPolicy = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Eviction_policy_model>(); } },
+                { "redis_maxmemory_policy", n => { RedisMaxmemoryPolicy = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Redis_advanced_config_redis_maxmemory_policy>(); } },
                 { "redis_notify_keyspace_events", n => { RedisNotifyKeyspaceEvents = n.GetStringValue(); } },
                 { "redis_number_of_databases", n => { RedisNumberOfDatabases = n.GetIntValue(); } },
                 { "redis_persistence", n => { RedisPersistence = n.GetEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Redis_advanced_config_redis_persistence>(); } },
@@ -91,7 +91,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
             writer.WriteIntValue("redis_io_threads", RedisIoThreads);
             writer.WriteIntValue("redis_lfu_decay_time", RedisLfuDecayTime);
             writer.WriteIntValue("redis_lfu_log_factor", RedisLfuLogFactor);
-            writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Eviction_policy_model>("redis_maxmemory_policy", RedisMaxmemoryPolicy);
+            writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Redis_advanced_config_redis_maxmemory_policy>("redis_maxmemory_policy", RedisMaxmemoryPolicy);
             writer.WriteStringValue("redis_notify_keyspace_events", RedisNotifyKeyspaceEvents);
             writer.WriteIntValue("redis_number_of_databases", RedisNumberOfDatabases);
             writer.WriteEnumValue<global::InfinityFlow.DigitalOcean.Client.Models.Redis_advanced_config_redis_persistence>("redis_persistence", RedisPersistence);

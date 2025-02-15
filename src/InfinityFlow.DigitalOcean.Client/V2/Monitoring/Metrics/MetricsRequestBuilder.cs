@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Apps;
 using InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Droplet;
+using InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Droplet_autoscale;
 using InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Load_balancer;
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
@@ -26,6 +27,11 @@ namespace InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics
         public global::InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Droplet.DropletRequestBuilder Droplet
         {
             get => new global::InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Droplet.DropletRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The droplet_autoscale property</summary>
+        public global::InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Droplet_autoscale.Droplet_autoscaleRequestBuilder Droplet_autoscale
+        {
+            get => new global::InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Droplet_autoscale.Droplet_autoscaleRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The load_balancer property</summary>
         public global::InfinityFlow.DigitalOcean.Client.V2.Monitoring.Metrics.Load_balancer.Load_balancerRequestBuilder Load_balancer

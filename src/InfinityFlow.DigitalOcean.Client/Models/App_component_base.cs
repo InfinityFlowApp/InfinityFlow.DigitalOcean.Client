@@ -14,6 +14,14 @@ namespace InfinityFlow.DigitalOcean.Client.Models
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The bitbucket property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec? Bitbucket { get; set; }
+#nullable restore
+#else
+        public global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec Bitbucket { get; set; }
+#endif
         /// <summary>An optional build command to run while building this component from source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -135,6 +143,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "bitbucket", n => { Bitbucket = n.GetObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec>(global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec.CreateFromDiscriminatorValue); } },
                 { "build_command", n => { BuildCommand = n.GetStringValue(); } },
                 { "dockerfile_path", n => { DockerfilePath = n.GetStringValue(); } },
                 { "environment_slug", n => { EnvironmentSlug = n.GetStringValue(); } },
@@ -156,6 +165,7 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         public virtual void Serialize(ISerializationWriter writer)
         {
             _ = writer ?? throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::InfinityFlow.DigitalOcean.Client.Models.Apps_bitbucket_source_spec>("bitbucket", Bitbucket);
             writer.WriteStringValue("build_command", BuildCommand);
             writer.WriteStringValue("dockerfile_path", DockerfilePath);
             writer.WriteStringValue("environment_slug", EnvironmentSlug);

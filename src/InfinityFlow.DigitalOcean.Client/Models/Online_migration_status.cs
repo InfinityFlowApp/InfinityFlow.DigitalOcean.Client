@@ -11,6 +11,10 @@ namespace InfinityFlow.DigitalOcean.Client.Models
         #pragma warning disable CS1591
         Running,
         #pragma warning restore CS1591
+        [EnumMember(Value = "syncing")]
+        #pragma warning disable CS1591
+        Syncing,
+        #pragma warning restore CS1591
         [EnumMember(Value = "canceled")]
         #pragma warning disable CS1591
         Canceled,
