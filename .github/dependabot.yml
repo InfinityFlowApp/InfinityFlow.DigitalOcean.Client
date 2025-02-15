@@ -4,27 +4,15 @@
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
-registries:
-  ghcr-nuget:
-    type: nuget-feed
-    url: https://nuget.pkg.github.com/InfinityFlowApp/index.json
-    username: ${{secrets.GHCR_DEPENDABOT_PACKAGE_SECERET_USERNAME }}
-    password: ${{secrets.GHCR_DEPENDABOT_PACKAGE_SECERET_KEY}}
 updates:
   - package-ecosystem: "nuget" # See documentation for possible values
     directory: "/" # Location of package manifests
-    registries:
-      - ghcr-nuget
     schedule:
       interval: "daily"
     labels:
       - "dependencies"
     open-pull-requests-limit: 10
     groups:
-      Temporal:
-        patterns:
-          - "Temporalio.*"
-          - Temporalio
       Aspire:
         patterns:
           - "Aspire"
@@ -39,29 +27,10 @@ updates:
         exclude-patterns:
           - "Microsoft.Orleans*"
           - "Microsoft.Kiota*"
-      Orleans:
-        patterns:
-          - "Microsoft.Orleans.*"
-          - "OrleansContrib.*"
       OpenTelemetry:
         patterns:
           - "OpenTelemetry.*"
-      MartenAndFriends:
-        patterns:
-          - "Marten"
-          - "WolverineFx"
-          - "Marten.*"
-          - "WolverineFx.*"
-          - "JasperFx.*"
-          - "Oakton.*"
-          - "Lamar.*"
 
-  - package-ecosystem: "devcontainers"
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "daily"
-    labels:
-      - "dev-tooling"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
