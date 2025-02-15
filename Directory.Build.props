@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+    <PropertyGroup>
+        <RepoRoot>$([System.IO.Path]::GetDirectoryName($([MSBuild]::GetPathOfFileAbove('.gitignore',
+            '$(MSBuildThisFileDirectory)'))))</RepoRoot>
+    </PropertyGroup>
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);AD0001</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Pack="true" PackagePath="" Include="$(RepoRoot)/LICENSE" />
+        <None Pack="true" PackagePath="" Include="$(RepoRoot)/README.md" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="InfinityFlow.Tools.Branding" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="GitVersion.MsBuild">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.SourceLink.GitHub">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+</Project>
