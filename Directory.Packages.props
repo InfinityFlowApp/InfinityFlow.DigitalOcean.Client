@@ -12,8 +12,8 @@
     <PackageVersion Include="GitHub.Octokit.SDK" Version="0.0.31" />
     <PackageVersion Include="GitVersion.MsBuild" Version="6.1.0" />
     <PackageVersion Include="InfinityFlow.Tools.Branding" Version="0.2.0" />
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.2" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.3" />
     <PackageVersion Include="Microsoft.Kiota.Abstractions" Version="1.17.1" />
     <PackageVersion Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
     <PackageVersion Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.1" />
