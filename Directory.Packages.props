@@ -14,13 +14,13 @@
     <PackageVersion Include="InfinityFlow.Tools.Branding" Version="0.2.0" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.3" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.3" />
-    <PackageVersion Include="Microsoft.Kiota.Abstractions" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Kiota.Serialization.Form" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Kiota.Serialization.Json" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Kiota.Serialization.Multipart" Version="1.17.1" />
-    <PackageVersion Include="Microsoft.Kiota.Serialization.Text" Version="1.17.1" />
+    <PackageVersion Include="Microsoft.Kiota.Abstractions" Version="1.17.2" />
+    <PackageVersion Include="Microsoft.Kiota.Authentication.Azure" Version="1.17.2" />
+    <PackageVersion Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.2" />
+    <PackageVersion Include="Microsoft.Kiota.Serialization.Form" Version="1.17.2" />
+    <PackageVersion Include="Microsoft.Kiota.Serialization.Json" Version="1.17.2" />
+    <PackageVersion Include="Microsoft.Kiota.Serialization.Multipart" Version="1.17.2" />
+    <PackageVersion Include="Microsoft.Kiota.Serialization.Text" Version="1.17.2" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
     <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
