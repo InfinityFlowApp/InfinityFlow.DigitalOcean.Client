@@ -7,7 +7,7 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
     <PackageVersion Include="FakeItEasy.Analyzer.CSharp" Version="6.1.1" />
-    <PackageVersion Include="FluentAssertions" Version="8.0.1" />
+    <PackageVersion Include="FluentAssertions" Version="8.2.0" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageVersion Include="GitHub.Octokit.SDK" Version="0.0.31" />
     <PackageVersion Include="GitVersion.MsBuild" Version="6.2.0" />
@@ -21,13 +21,13 @@
     <PackageVersion Include="Microsoft.Kiota.Serialization.Json" Version="1.17.2" />
     <PackageVersion Include="Microsoft.Kiota.Serialization.Multipart" Version="1.17.2" />
     <PackageVersion Include="Microsoft.Kiota.Serialization.Text" Version="1.17.2" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
-    <PackageVersion Include="NUnit" Version="3.14.0" />
-    <PackageVersion Include="NUnit.Analyzers" Version="4.6.0" />
-    <PackageVersion Include="NUnit3TestAdapter" Version="4.6.0" />
+    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
+    <PackageVersion Include="NUnit" Version="4.3.2" />
+    <PackageVersion Include="NUnit.Analyzers" Version="4.7.0" />
+    <PackageVersion Include="NUnit3TestAdapter" Version="5.0.0" />
     <PackageVersion Include="System.Net.Http" Version="4.3.4" />
-    <PackageVersion Include="System.Text.Json" Version="9.0.2" />
+    <PackageVersion Include="System.Text.Json" Version="9.0.3" />
   </ItemGroup>
 </Project>
