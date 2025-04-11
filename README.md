@@ -34,7 +34,7 @@ graph TD
 
 ## Installation
 
-Install the package from NuGet:
+Install the package from NuGet: 
 
 ```bash
 dotnet add package InfinityFlow.DigitalOcean.Client
