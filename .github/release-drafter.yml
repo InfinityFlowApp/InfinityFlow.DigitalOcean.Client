@@ -12,22 +12,10 @@ categories:
   - title: "🐛 Bug Fixes"
     labels:
       - "bug"
-  - title: "🚢 area-resources"
-    labels:
-      - "area-resources"
-  - title: "🤝 area-shared"
-    labels:
-      - "area-shared"
-  - title: "📽️ area-projects"
-    labels:
-      - "area-projects"
   - title: "🧰 Maintenance & Dependencies"
     labels:
       - "maintenance"
       - "dependencies"
-  - title: "☸️ Deployment Resources"
-    labels:
-      - "deployment-resources"
   - title: "🧑🏼‍💻 Development Tooling"
     labels:
       - "dev-tooling"
@@ -60,13 +48,6 @@ autolabeler:
     files:
       - ".github/**/*"
       - "test/**/*"
-  - label: "area-resources"
-    files:
-      - "src/Domain/InfinityFlow.Domain.Resources/**/*"
-  - label: "area-shared"
-    files:
-      - "src/InfinityFlow.Shared/**/*"
-      - "src/InfinityFlow.Shared.Temporal/**/*"
   - label: "dependencies"
     files:
       - "Directory.Packages.props"
