@@ -11,7 +11,7 @@
     <PackageVersion Include="GitHub.Octokit.SDK" Version="0.0.31" />
     <PackageVersion Include="GitVersion.MsBuild" Version="6.3.0" />
     <PackageVersion Include="InfinityFlow.Tools.Branding" Version="0.2.0" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.7" />
     <PackageVersion Include="Microsoft.Kiota.Http.HttpClientLibrary" Version="1.17.4" />
     <PackageVersion Include="Microsoft.Kiota.Serialization.Form" Version="1.17.4" />
     <PackageVersion Include="Microsoft.Kiota.Serialization.Json" Version="1.17.4" />
